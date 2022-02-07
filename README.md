@@ -24,7 +24,11 @@ it for the class project and plan to keep it updated as I catch bugs but I
 make no guarantees that this will always spit out the right answer or 
 anything like that. Use at your own risk.
 
-## Example 
+# Using
+Just clone the project and run `python ./main.py` to generate all the 
+described test vectors. It's dead simple!
+
+## Example + Making your own
 Let's look at a very simple spec for a circuit:
 
 > Using Logisim and only NAND gates, implement an 8→3 encoder with input A[7:0] and output X[2:0].
