@@ -75,3 +75,6 @@ task3 = TestVector(
     create_all_inputs,
     "test_vectors/da1p3.txt"
 )
+
+# Task 4 has the same I/O as task 3!!
+task3.save_results("test_vectors/da1p4.txt")
