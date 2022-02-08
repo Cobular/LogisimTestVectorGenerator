@@ -42,8 +42,8 @@ def TaskTwoGenerator(input_case: InputOutputCase) -> List[bool]:
 task2 = TestVector(
     [InputOutputShapeElement(label="A", width=7)],
     [
+        InputOutputShapeElement(label="X1", width=64),
         InputOutputShapeElement(label="X0", width=64),
-        InputOutputShapeElement(label="X1", width=64)
     ],
     TaskTwoGenerator,
     create_all_inputs,
