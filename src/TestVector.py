@@ -21,7 +21,7 @@ class TestVector:
         result_generator: RowGenerator,
         input_generator: InputGenerator,
         save_path: str
-    ):
+    ) -> object:
         """
         Creates and saves a TestVector
         :param inputs: The shape of the inputs this circuit will take

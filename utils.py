@@ -1,9 +1,22 @@
 import math
 from functools import reduce
-from typing import List, Callable, Optional
+from typing import List, Callable, Optional, Collection
 
 from custom_types import InputOutputShapeElement, InputOutputCaseElement, \
     InputOutputCase
+
+
+def bitCollectionToString(inp: Collection) -> str:
+    """
+    Reduces any collection to a string of 1s and 0s
+    :param inp:
+    :return:
+    """
+    func: Callable[[str, bool], str] = \
+        lambda prev, current: prev + str(int(current))
+    return reduce(
+        func, inp, ""
+    )
 
 
 def flattenInputOutputCase(input_case: InputOutputCase) -> List[bool]:
@@ -40,6 +53,7 @@ def flattenInputOutputElementToString(
 ) -> str:
     """
     Reduces an InputOutputCaseElement to a string of 1 and 0
+    :rtype: object
     :param input_case:
     :return:
     """
