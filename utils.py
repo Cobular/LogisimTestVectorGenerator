@@ -160,3 +160,7 @@ def int_to_byte_arr(inp: int, length: Optional[int] = None) -> List[bool]:
         length = math.ceil(math.log2(inp))
     format_str = "{0:0" + str(length) + "b}"
     return [bool(int(byte)) for byte in format_str.format(inp)]
+
+
+def int_array_to_bool_array(inp: list[int]) -> list[bool]:
+    return [bool(i) for i in inp]

@@ -13,6 +13,7 @@ class TestVector:
     inputs: List[InputOutputCase]
     results: Dict[InputOutputCase, InputOutputCase]
     generator: RowGenerator
+    printHeader: bool
 
     def __init__(
         self,
@@ -20,8 +21,9 @@ class TestVector:
         outputs: List[InputOutputShapeElement],
         result_generator: RowGenerator,
         input_generator: InputGenerator,
-        save_path: str
-    ) -> object:
+        save_path: str,
+        print_header: bool = True
+    ):
         """
         Creates and saves a TestVector
         :param inputs: The shape of the inputs this circuit will take
@@ -36,6 +38,7 @@ class TestVector:
         self.generator = result_generator
 
         self.inputs = input_generator(inputs)
+        self.printHeader = print_header
         self.generate_rows()
         self.save_results(save_path)
 
@@ -57,12 +60,14 @@ class TestVector:
         self.results = results
 
     def save_results(self, path: str):
-        with open(path, "w") as file:
+        with open(path, "w", newline='') as file:
             writer = csv.writer(file, delimiter=" ")
             header: List[str] = [f"{thing.label}[{thing.width}]" for thing in
                                  self.inputShape +
                                  self.outputShape]
-            writer.writerow(header)
+
+            if self.printHeader:
+                writer.writerow(header)
 
             body: List[List[str]] = []
             for inputs, outputs in self.results.items():
